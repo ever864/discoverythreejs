@@ -8,8 +8,6 @@ import {
   WebGLRenderer,
 } from "https://cdn.skypack.dev/three@0.132.2";
 
-console.log("Hello, World!");
-
 const container = document.querySelector("#scene-container");
 
 const scene = new Scene();
@@ -25,7 +23,11 @@ const camera = new PerspectiveCamera(fov, aspect, near, far);
 
 camera.position.set(0, 0, 10);
 
-const geometry = new BoxBufferGeometry(2, 2, 2);
+const length = 2;
+const width = 2;
+const height = 2;
+
+const geometry = new BoxBufferGeometry(length, width, height);
 
 const material = new MeshBasicMaterial();
 
@@ -39,6 +41,7 @@ renderer.setSize(container.clientWidth, container.clientHeight);
 
 renderer.setPixelRatio(window.devicePixelRatio);
 
+// add canvas to DOM
 container.append(renderer.domElement);
 
 renderer.render(scene, camera);
